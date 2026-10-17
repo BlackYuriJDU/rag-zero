@@ -1,5 +1,7 @@
 # RAG Zero
 
+[![CI](https://github.com/BlackYuriJDU/rag-zero/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackYuriJDU/rag-zero/actions/workflows/ci.yml)
+
 **Grounded question answering over Brazilian public procurement (PNCP) — a production-style RAG system with real evaluations.**
 
 > Status: 🚧 **P0 — foundations under construction.** The results table below will be filled with measured numbers as each phase lands. No screenshots of happy paths: every claim in this README will have a script that reproduces it.
