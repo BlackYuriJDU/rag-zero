@@ -1,0 +1,9 @@
+# Normaliza fim de linha em todo o repositório (contribuintes Linux/macOS agradecem)
+* text=auto eol=lf
+
+# Binários comuns no projeto
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.xlsx binary
