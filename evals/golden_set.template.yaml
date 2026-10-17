@@ -1,0 +1,41 @@
+# Golden set do RAG Zero — template v0
+#
+# Regras de curadoria (a partir do P0):
+#   1. Perguntas escritas como um comprador/fornecedor/jornalista perguntaria.
+#   2. Resposta e fontes conferidas À MÃO contra o corpus indexado.
+#      (LLM pode ajudar a rascunhar; nunca entra sem revisão humana.)
+#   3. ~10-15% dos itens devem ser impossíveis de responder com o corpus
+#      (`tipo: sem_resposta`) — recusa correta é virtude, não falha.
+#   4. Todo item aponta para IDs canônicos do corpus
+#      (numeroControlePNCP + seção do documento quando aplicável).
+#
+# Tipos:
+#   estrutural   -> resposta exata de campo estruturado (valor, prazo, modalidade);
+#                   dá para medir com exact-match, sem juiz LLM.
+#   retrieval    -> exige encontrar o documento certo.
+#   sintese      -> exige juntar mais de um documento/trecho.
+#   sem_resposta -> o corpus não contém a resposta; o sistema deve recusar.
+
+- id: gs-0001
+  tipo: estrutural
+  pergunta: "Qual o valor total estimado da contratação <numeroControlePNCP>?"
+  resposta_esperada: "R$ 1.234.567,89"
+  fontes_esperadas:
+    - numero_controle_pncp: "<numeroControlePNCP>"
+      secao: "metadados"
+  notas: "Exemplo — substituir por itens reais do corpus."
+
+- id: gs-0002
+  tipo: retrieval
+  pergunta: "Existe edital aberto para fornecimento de merenda escolar em PE?"
+  resposta_esperada: "Sim — <números de controle>"
+  fontes_esperadas:
+    - numero_controle_pncp: "<numeroControlePNCP>"
+  notas: "Exemplo — substituir por itens reais do corpus."
+
+- id: gs-0003
+  tipo: sem_resposta
+  pergunta: "Qual foi o valor do contrato de compra de dirigíveis para o carnaval do Recife em 2031?"
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: "Escolher casos impossíveis porém plausíveis — nunca perguntas absurdas de propósito."

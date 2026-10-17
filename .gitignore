@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Ferramentas
+.pytest_cache/
+.ruff_cache/
+
+# Segredos e dados locais (nunca no git)
+.env
+data/
+
+# IDE
+.idea/
+.vscode/
