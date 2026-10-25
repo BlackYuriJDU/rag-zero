@@ -1,0 +1,666 @@
+- id: gs-est-0001
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 11361854000110-1-000088/2026?
+  resposta_esperada: R$ 807.318,78
+  fontes_esperadas:
+  - numero_controle_pncp: 11361854000110-1-000088/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0002
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 10164028000118-1-000025/2026?
+  resposta_esperada: R$ 138.938,88
+  fontes_esperadas:
+  - numero_controle_pncp: 10164028000118-1-000025/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0003
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 31483079000182-1-000019/2026?
+  resposta_esperada: R$ 240.296,51
+  fontes_esperadas:
+  - numero_controle_pncp: 31483079000182-1-000019/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0004
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 10572022000180-1-000459/2026?
+  resposta_esperada: R$ 207.251,16
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000459/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0005
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 09814269000186-1-000019/2026?
+  resposta_esperada: R$ 141.747,72
+  fontes_esperadas:
+  - numero_controle_pncp: 09814269000186-1-000019/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0006
+  tipo: estrutural
+  pergunta: Qual o valor total estimado da contratação 10287373000149-1-000046/2026?
+  resposta_esperada: R$ 1.477.210,32
+  fontes_esperadas:
+  - numero_controle_pncp: 10287373000149-1-000046/2026
+    secao: ficha
+  notas: campo=valor; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0007
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 10769869000159-1-000013/2026?
+  resposta_esperada: 03/11/2026 09:00
+  fontes_esperadas:
+  - numero_controle_pncp: 10769869000159-1-000013/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0008
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 10110989000140-1-000016/2026?
+  resposta_esperada: 26/10/2026 08:30
+  fontes_esperadas:
+  - numero_controle_pncp: 10110989000140-1-000016/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0009
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 10572022000180-1-000510/2026?
+  resposta_esperada: 24/08/2026 10:00
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000510/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0010
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 08032567000151-1-002007/2026?
+  resposta_esperada: 29/10/2026 14:30
+  fontes_esperadas:
+  - numero_controle_pncp: 08032567000151-1-002007/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0011
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 40893646000160-1-000046/2026?
+  resposta_esperada: 22/09/2026 08:00
+  fontes_esperadas:
+  - numero_controle_pncp: 40893646000160-1-000046/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0012
+  tipo: estrutural
+  pergunta: Quando encerra o prazo de propostas da contratação 10931533000140-1-000013/2026?
+  resposta_esperada: 11/08/2026 14:00
+  fontes_esperadas:
+  - numero_controle_pncp: 10931533000140-1-000013/2026
+    secao: ficha
+  notas: campo=encerramento; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0013
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 30926420000164-1-000001/2026?
+  resposta_esperada: SECRETARIA MUNICIPAL DE EDUCACAO
+  fontes_esperadas:
+  - numero_controle_pncp: 30926420000164-1-000001/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0014
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 05440725000114-1-000058/2026?
+  resposta_esperada: FUNDACAO UNIVERSIDADE FEDERAL DO VALE DO SAO FRANCISCO
+  fontes_esperadas:
+  - numero_controle_pncp: 05440725000114-1-000058/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0015
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 10572022000180-1-000521/2026?
+  resposta_esperada: SECRETARIA DE ADMINISTRACAO
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000521/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0016
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 11022597001597-1-000287/2026?
+  resposta_esperada: FUNDACAO UNIVERSIDADE DE PERNAMBUCO
+  fontes_esperadas:
+  - numero_controle_pncp: 11022597001597-1-000287/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0017
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 10105963000103-1-000027/2026?
+  resposta_esperada: MUNICIPIO DE BUIQUE
+  fontes_esperadas:
+  - numero_controle_pncp: 10105963000103-1-000027/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0018
+  tipo: estrutural
+  pergunta: Qual órgão publicou a contratação 10091593000100-1-000053/2026?
+  resposta_esperada: MUNICIPIO DE TAQUARITINGA DO NORTE
+  fontes_esperadas:
+  - numero_controle_pncp: 10091593000100-1-000053/2026
+    secao: ficha
+  notas: campo=orgao; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0019
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 01613860000163-1-000056/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 01613860000163-1-000056/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0020
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 11022597001597-1-000299/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 11022597001597-1-000299/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0021
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 11503081000169-1-000045/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 11503081000169-1-000045/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0022
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 10265429000164-1-000013/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 10265429000164-1-000013/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0023
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 35450790000191-1-000010/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 35450790000191-1-000010/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-est-0024
+  tipo: estrutural
+  pergunta: Qual a modalidade da contratação 08032567000151-1-002241/2026?
+  resposta_esperada: Pregão - Eletrônico
+  fontes_esperadas:
+  - numero_controle_pncp: 08032567000151-1-002241/2026
+    secao: ficha
+  notas: campo=modalidade; derivado do banco (verificável)
+  subtipo: lookup
+- id: gs-ret-0025
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "EVENTUAL CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA
+    FORNECIMENTO DE MATERIAL DE EXPEDIENTE E PEDAGÓGICO PARA"?
+  resposta_esperada: 11361854000110-1-000088/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11361854000110-1-000088/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0026
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de Serviços de Provedor Banda Larga
+    de acesso à Internet para provimento de"?
+  resposta_esperada: 10164028000118-1-000025/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10164028000118-1-000025/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0027
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formalização de Ata Registro de preços para futura
+    e eventual Contratação de empresa especializada"?
+  resposta_esperada: 31483079000182-1-000019/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 31483079000182-1-000019/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0028
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de empresa especializada em serviço
+    na locação de unidade geradora de ar medicinal,"?
+  resposta_esperada: 10572022000180-1-000459/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000459/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0029
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formalização de Ata de Registro de Preços para
+    aquisição de fardamentos para atender às"?
+  resposta_esperada: 09814269000186-1-000019/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 09814269000186-1-000019/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0030
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "[Portal de Compras Públicas] - REGISTRO DE PREÇOS
+    PARA FUTURA E EVENTUAL AQUISIÇÃO DE"?
+  resposta_esperada: 10287373000149-1-000046/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10287373000149-1-000046/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0031
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "[LICITANET] - Constitui objeto da presente licitação
+    é a contratação de empresa especializada no"?
+  resposta_esperada: 10769869000159-1-000013/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10769869000159-1-000013/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0032
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de serviços para gestão da frota de
+    veículos automotores do Município de Barreiros"?
+  resposta_esperada: 10110989000140-1-000016/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10110989000140-1-000016/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0033
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formação de Registro de Preços para o fornecimento
+    eventual de equipamentos de rede SWITCH"?
+  resposta_esperada: 10572022000180-1-000510/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000510/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0034
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formação de Registro de Preços para contratação
+    eventual de prestação de serviços de Locação,"?
+  resposta_esperada: 08032567000151-1-002007/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 08032567000151-1-002007/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0035
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Aquisição e instalação de academias ao ar livre,
+    incluindo os equipamentos e respectivos serviços"?
+  resposta_esperada: 40893646000160-1-000046/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 40893646000160-1-000046/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0036
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de empresa para fornecimento de 02
+    (dois) telões e 02 (dois) processadores a"?
+  resposta_esperada: 10931533000140-1-000013/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10931533000140-1-000013/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0037
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Registro de Preços para futura e eventual aquisição
+    de charque, visando atender às necessidades"?
+  resposta_esperada: 30926420000164-1-000001/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 30926420000164-1-000001/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0038
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Registro de preços Vidrarias, visando suprir demandas
+    dos Setores Administrativos e Acadêmicos da Univasf."?
+  resposta_esperada: 05440725000114-1-000058/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 05440725000114-1-000058/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0039
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formação de Ata de Registro de Preços Unificada
+    da Saúde para o fornecimento eventual"?
+  resposta_esperada: 10572022000180-1-000521/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000521/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0040
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "REGISTRO DE PREÇOS PARA EVENTUAL E FUTURA AQUISIÇÃO
+    DE BOMBAS HIDRÁULICAS DE VARIADOS MODELOS"?
+  resposta_esperada: 11022597001597-1-000287/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11022597001597-1-000287/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0041
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL CONTRATAÇÃO
+    DE EMPRESA ESPECIALIZADA PARA A AQUISIÇÃO"?
+  resposta_esperada: 10105963000103-1-000027/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10105963000103-1-000027/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0042
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "[Portal de Compras Públicas] - Contratação de empresa
+    especializada para a prestação de serviços"?
+  resposta_esperada: 10091593000100-1-000053/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10091593000100-1-000053/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0043
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "AQUISIÇÃO DE MEDICAMENTOS E MATERIAL MEDICO–HOSPITALAR,
+    DESTINADOS A ATENDER AS NECESSIDADES DA REDE PÚBLICA"?
+  resposta_esperada: 01613860000163-1-000056/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 01613860000163-1-000056/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0044
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "REGISTRO DE PREÇOS PARA A EVENTUAL AQUISIÇÃO DE
+    EQUIPAMENTOS MÉDICO-HOSPITALARES (BALÃO INTRA AÓRTICO, RAIO-X"?
+  resposta_esperada: 11022597001597-1-000299/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11022597001597-1-000299/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0045
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "[Portal de Compras Públicas] - Aquisição imediata
+    e urgente de Estação de Anestesia visando"?
+  resposta_esperada: 11503081000169-1-000045/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11503081000169-1-000045/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0046
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de empresa para o fornecimento, parcelado,
+    de combustíveis para a frota de veículos"?
+  resposta_esperada: 10265429000164-1-000013/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10265429000164-1-000013/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0047
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de Empresa Especializada para Prestação
+    de Serviços de Apoio Administrativo, Técnico, Gerenciamento Controle"?
+  resposta_esperada: 35450790000191-1-000010/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 35450790000191-1-000010/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0048
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Aquisição de equipamentos e materiais de sonorização
+    com o objetivo de equipar e modernizar"?
+  resposta_esperada: 08032567000151-1-002241/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 08032567000151-1-002241/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0049
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Registro de Preço para aquisição do Sistema de
+    Ensino Inclusivo “Aprendendo do Meu Jeito”,"?
+  resposta_esperada: 19608720000162-1-000013/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 19608720000162-1-000013/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0050
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "[LICITANET] - AQUISIÇÃO DE MATERIAL ELÉTRICO E
+    ACESSÓRIOS DESTINADO A ATENDER AS NECESSIDADES DAS"?
+  resposta_esperada: 11040870000100-1-000069/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11040870000100-1-000069/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0051
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Contratação de empresa especializada para fornecimento
+    contínuo parcelado de oxigênio medicinal gasoso, incluindo cessão"?
+  resposta_esperada: 10091510000175-1-000044/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10091510000175-1-000044/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0052
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formação de Registro de Preços para o fornecimento
+    eventual de 40.000 (quarenta mil) COLCHÕES"?
+  resposta_esperada: 10572022000180-1-000621/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000621/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0053
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "Formação de Registro de Preços para o fornecimento
+    eventual de insumos da máquina unitarizadora"?
+  resposta_esperada: 10572022000180-1-000614/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10572022000180-1-000614/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-ret-0054
+  tipo: retrieval
+  pergunta: Qual contratação tem como objeto o trecho "REGISTRO DE PREÇO, PELO PERÍODO DE 12 (DOZE) MESES,
+    PARA AQUISIÇÃO DE MEDICAMENTO, EM"?
+  resposta_esperada: 41090291000133-1-000194/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 41090291000133-1-000194/2026
+    secao: ficha
+  notas: consulta verbatim; mede o piso do índice lexical
+  subtipo: verbatim
+- id: gs-cur-0001
+  tipo: retrieval
+  pergunta: Qual contratação em Barra de Guabiraba é para levar estudantes até a escola?
+  resposta_esperada: 10120962000138-1-000011/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10120962000138-1-000011/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''levar estudantes'' vs ''transporte escolar'''
+  subtipo: paraphrase
+- id: gs-cur-0002
+  tipo: retrieval
+  pergunta: Existe obra de calçamento de ruas em Chã de Alegria?
+  resposta_esperada: 11049798000182-1-000026/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11049798000182-1-000026/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''calçamento'' vs ''pavimentação em paralelepípedos'''
+  subtipo: paraphrase
+- id: gs-cur-0003
+  tipo: retrieval
+  pergunta: O município de Belém do São Francisco comprou remédios?
+  resposta_esperada: 10113728000183-1-000033/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10113728000183-1-000033/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''remédios'' vs ''medicamentos'''
+  subtipo: paraphrase
+- id: gs-cur-0004
+  tipo: retrieval
+  pergunta: O que a Secretaria de Saúde de Mirandiba comprou para limpeza?
+  resposta_esperada: 11043312000107-1-000073/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11043312000107-1-000073/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''para limpeza'' vs ''materiais de limpeza'''
+  subtipo: paraphrase
+- id: gs-cur-0005
+  tipo: retrieval
+  pergunta: Joaquim Nabuco comprou uniforme para os alunos da rede municipal?
+  resposta_esperada: 20599336000120-1-000009/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 20599336000120-1-000009/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''uniforme'' vs ''fardamento/uniforme escolar'''
+  subtipo: paraphrase
+- id: gs-cur-0006
+  tipo: retrieval
+  pergunta: Aliança instalou ar-condicionado e ventiladores nas escolas?
+  resposta_esperada: 46168650000141-1-000010/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 46168650000141-1-000010/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''instalou'' vs ''aquisição de equipamentos de climatização'''
+  subtipo: paraphrase
+- id: gs-cur-0007
+  tipo: retrieval
+  pergunta: Garanhuns comprou notebooks e computadores de mesa?
+  resposta_esperada: 35872812000101-1-000099/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 35872812000101-1-000099/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''notebooks e computadores de mesa'' vs ''microcomputadores desktop'''
+  subtipo: paraphrase
+- id: gs-cur-0008
+  tipo: retrieval
+  pergunta: Arcoverde vai comprar alimentos para as escolas?
+  resposta_esperada: 19470663000106-1-000010/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 19470663000106-1-000010/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''alimentos'' vs ''gêneros alimentícios'''
+  subtipo: paraphrase
+- id: gs-cur-0009
+  tipo: retrieval
+  pergunta: Bezerros contratou roupas padronizadas para os servidores?
+  resposta_esperada: 10091510000175-1-000057/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10091510000175-1-000057/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''roupas padronizadas'' vs ''peças de vestuário padronizadas'''
+  subtipo: paraphrase
+- id: gs-cur-0010
+  tipo: retrieval
+  pergunta: Ipojuca alugou aparelhos de ar-condicionado?
+  resposta_esperada: 11294386000108-1-000139/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11294386000108-1-000139/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''alugou'' vs ''locação de aparelhos de ar condicionado'''
+  subtipo: paraphrase
+- id: gs-cur-0011
+  tipo: retrieval
+  pergunta: Amaraji comprou leite especial e suplementos alimentares?
+  resposta_esperada: 11607836000175-1-000030/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 11607836000175-1-000030/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''suplementos alimentares'' vs ''leites especiais e suplementos'''
+  subtipo: paraphrase
+- id: gs-cur-0012
+  tipo: retrieval
+  pergunta: Afogados da Ingazeira comprou uniformes e equipamentos de proteção para eletricistas?
+  resposta_esperada: 10346096000106-1-000056/2026
+  fontes_esperadas:
+  - numero_controle_pncp: 10346096000106-1-000056/2026
+    secao: ficha
+  notas: 'curadoria manual; paráfrase: ''equipamentos de proteção'' vs ''EPI''s'''
+  subtipo: paraphrase
+- id: gs-nan-0001
+  tipo: sem_resposta
+  pergunta: Qual o valor do contrato de compra de dirigíveis para o carnaval do Recife em 2031?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: assunto plausível, ausente do corpus e fora do período
+  subtipo: unanswerable
+- id: gs-nan-0002
+  tipo: sem_resposta
+  pergunta: Existe licitação aberta para fornecimento de trens-bala entre Recife e Caruaru?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: obra inexistente; exige recusa
+  subtipo: unanswerable
+- id: gs-nan-0003
+  tipo: sem_resposta
+  pergunta: Qual o valor estimado da compra de 500 tratores autônomos para Fernando de Noronha em 2031?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: combinação improvável; ano fora do corpus
+  subtipo: unanswerable
+- id: gs-nan-0004
+  tipo: sem_resposta
+  pergunta: Quem ganhou a concorrência para construir o elevador espacial de Pernambuco?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: assunto absurdo porém formulado como pergunta real
+  subtipo: unanswerable
+- id: gs-nan-0005
+  tipo: sem_resposta
+  pergunta: Qual o prazo de propostas da contratação 00000000000000-1-000000/2031?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: ID sintaticamente válido, inexistente no corpus
+  subtipo: unanswerable
+- id: gs-nan-0006
+  tipo: sem_resposta
+  pergunta: Há contratação para compra de submarinos nucleares em Olinda?
+  resposta_esperada: null
+  fontes_esperadas: []
+  notas: termo distintivo ausente
+  subtipo: unanswerable

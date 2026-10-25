@@ -1,0 +1,181 @@
+{
+  "generated_at": "2026-10-25T13:49:35+00:00",
+  "config": {
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "rrf_k": 60,
+    "min_evidence_coverage": 0.55,
+    "min_dense_similarity": 0.2,
+    "k": 10,
+    "golden": "evals/golden_set.yaml"
+  },
+  "reports": [
+    {
+      "mode": "bm25",
+      "k": 10,
+      "counts": {
+        "estrutural": 24,
+        "retrieval": 42,
+        "sem_resposta": 6
+      },
+      "metrics": {
+        "recall@10": 0.9047619047619048,
+        "mrr@10": 0.7578609221466364,
+        "citation_precision": 0.6904761904761905,
+        "structural_accuracy": 1.0,
+        "refusal_accuracy": 0.6666666666666666,
+        "false_refusals": 0.0
+      },
+      "latencies_ms": {
+        "p50": 44.59669999778271,
+        "p95": 67.54329998511821,
+        "mean": 59.03501110798162
+      },
+      "by_subtipo": {
+        "lookup": {
+          "n": 24,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": 1.0,
+          "refusal_accuracy": null
+        },
+        "verbatim": {
+          "n": 30,
+          "recall@10": 0.8666666666666667,
+          "mrr@10": 0.7117989417989418,
+          "citation_precision": 0.6333333333333333,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "paraphrase": {
+          "n": 12,
+          "recall@10": 1.0,
+          "mrr@10": 0.873015873015873,
+          "citation_precision": 0.8333333333333334,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "unanswerable": {
+          "n": 6,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": null,
+          "refusal_accuracy": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "mode": "dense",
+      "k": 10,
+      "counts": {
+        "estrutural": 24,
+        "retrieval": 42,
+        "sem_resposta": 6
+      },
+      "metrics": {
+        "recall@10": 0.40476190476190477,
+        "mrr@10": 0.2621315192743764,
+        "citation_precision": 0.19047619047619047,
+        "structural_accuracy": 1.0,
+        "refusal_accuracy": 0.6666666666666666,
+        "false_refusals": 0.0
+      },
+      "latencies_ms": {
+        "p50": 437.44349997723475,
+        "p95": 901.4783999882638,
+        "mean": 564.3927694440613
+      },
+      "by_subtipo": {
+        "lookup": {
+          "n": 24,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": 1.0,
+          "refusal_accuracy": null
+        },
+        "verbatim": {
+          "n": 30,
+          "recall@10": 0.26666666666666666,
+          "mrr@10": 0.13444444444444445,
+          "citation_precision": 0.06666666666666667,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "paraphrase": {
+          "n": 12,
+          "recall@10": 0.75,
+          "mrr@10": 0.5813492063492064,
+          "citation_precision": 0.5,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "unanswerable": {
+          "n": 6,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": null,
+          "refusal_accuracy": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "mode": "hybrid",
+      "k": 10,
+      "counts": {
+        "estrutural": 24,
+        "retrieval": 42,
+        "sem_resposta": 6
+      },
+      "metrics": {
+        "recall@10": 0.7619047619047619,
+        "mrr@10": 0.4867063492063492,
+        "citation_precision": 0.38095238095238093,
+        "structural_accuracy": 1.0,
+        "refusal_accuracy": 0.6666666666666666,
+        "false_refusals": 0.0
+      },
+      "latencies_ms": {
+        "p50": 444.0201999968849,
+        "p95": 777.6514000142924,
+        "mean": 352.76952638944044
+      },
+      "by_subtipo": {
+        "lookup": {
+          "n": 24,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": 1.0,
+          "refusal_accuracy": null
+        },
+        "verbatim": {
+          "n": 30,
+          "recall@10": 0.7,
+          "mrr@10": 0.37027777777777776,
+          "citation_precision": 0.26666666666666666,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "paraphrase": {
+          "n": 12,
+          "recall@10": 0.9166666666666666,
+          "mrr@10": 0.7777777777777778,
+          "citation_precision": 0.6666666666666666,
+          "structural_accuracy": null,
+          "refusal_accuracy": null
+        },
+        "unanswerable": {
+          "n": 6,
+          "recall@10": null,
+          "mrr@10": null,
+          "citation_precision": null,
+          "structural_accuracy": null,
+          "refusal_accuracy": 0.6666666666666666
+        }
+      }
+    }
+  ]
+}

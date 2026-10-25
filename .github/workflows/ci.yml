@@ -17,3 +17,5 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest
+      # Smoke test do pacote: garante que a CLI importa sem banco nem modelo.
+      - run: uv run rag-zero --help
