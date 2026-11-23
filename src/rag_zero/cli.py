@@ -17,7 +17,7 @@ from rag_zero import __version__, db, retrieval
 from rag_zero.answer import answer_question
 from rag_zero.chunking import format_brl
 from rag_zero.config import settings
-from rag_zero.embeddings import FastEmbedder, index_pending
+from rag_zero.embeddings import DenseUnavailableError, FastEmbedder, index_pending
 from rag_zero.evals.golden import build_golden, load_golden, save_golden, validate_golden
 from rag_zero.evals.runner import evaluate_all, save_reports
 from rag_zero.ingest import ingest_period
@@ -45,6 +45,17 @@ def _open_db(db_path: str | None):
     conn = db.connect(db_path)
     db.init_db(conn)
     return conn
+
+
+def _make_embedder(needed: bool = True) -> FastEmbedder | None:
+    """Cria o embedder só quando o modo exige; sem o extra ``dense``, falha com clareza."""
+    if not needed:
+        return None
+    try:
+        return FastEmbedder()
+    except DenseUnavailableError as exc:
+        console.print(f"[red]{escape(str(exc))}[/red]")
+        raise typer.Exit(code=1) from exc
 
 
 @app.command()
@@ -204,7 +215,7 @@ def index(
         console.print("[green]Nada a fazer: todos os chunks já têm embedding.[/green]")
         return
     console.print(f"Embeddando [bold]{pending}[/bold] chunks com {settings.embedding_model}…")
-    embedder = FastEmbedder()
+    embedder = _make_embedder()
     total = index_pending(
         conn,
         embedder,
@@ -224,7 +235,7 @@ def search(
 ) -> None:
     """Busca contratações (sem gerar resposta)."""
     conn = _open_db(db_path)
-    embedder = FastEmbedder() if mode in {"dense", "hybrid"} else None
+    embedder = _make_embedder(mode in {"dense", "hybrid"})
     hits = retrieval.search(conn, query, mode=mode, k=k, embedder=embedder)
 
     table = Table(title=f"{len(hits)} resultado(s) · modo {mode}")
@@ -255,7 +266,7 @@ def ask(
 ) -> None:
     """Responde com evidências e citações — ou recusa."""
     conn = _open_db(db_path)
-    embedder = FastEmbedder() if mode in {"dense", "hybrid"} else None
+    embedder = _make_embedder(mode in {"dense", "hybrid"})
     answer = answer_question(conn, question, mode=mode, k=k, embedder=embedder)
 
     style = "yellow" if answer.refused else "green"
@@ -309,7 +320,7 @@ def evals_run(
             f"(ex.: {missing[0]}). O golden set está defasado em relação à ingestão.[/yellow]"
         )
     mode_list = [mode.strip() for mode in modes.split(",") if mode.strip()]
-    embedder = FastEmbedder() if any(m in {"dense", "hybrid"} for m in mode_list) else None
+    embedder = _make_embedder(any(m in {"dense", "hybrid"} for m in mode_list))
 
     reports = []
     for mode in mode_list:

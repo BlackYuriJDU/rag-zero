@@ -1,0 +1,29 @@
+name: Bug report
+description: Something is wrong or unexpected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Commands and, if relevant, the question you asked.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `rag-zero version` or the commit you are on.
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Python version, and whether the `dense` extra is installed.

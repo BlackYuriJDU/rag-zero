@@ -6,16 +6,35 @@ on:
   pull_request:
 
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
+          python-version: ${{ matrix.python-version }}
       - run: uv sync --dev
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest
       # Smoke test do pacote: garante que a CLI importa sem banco nem modelo.
       - run: uv run rag-zero --help
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - run: uvx twine check dist/*
+      # A instalação padrão (sem o extra dense) tem de funcionar num venv limpo.
+      - name: Install the wheel in a clean venv
+        run: |
+          uv venv /tmp/clean
+          uv pip install --python /tmp/clean/bin/python dist/*.whl
+          /tmp/clean/bin/rag-zero --help
