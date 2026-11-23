@@ -2,173 +2,145 @@
 
 [![CI](https://github.com/BlackYuriJDU/rag-zero/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackYuriJDU/rag-zero/actions/workflows/ci.yml)
 
+🇬🇧 English · 🇧🇷 [Português](README.pt-BR.md)
+
 **Grounded question answering over Brazilian public procurement (PNCP) — with citations, honest refusal, and measured retrieval.**
 
-> Status: **P0/P1 concluídos.** O corpus real tem 2.714 contratações (PE, Pregão
-> Eletrônico, 90 dias) e 2.721 chunks. Todos os números abaixo saem de
-> `rag-zero evals run` e ficam gravados em `evals/results/latest.json`.
+> Status: **alpha (0.1.0).** P0/P1 are done. The real corpus has 2,714 procurements
+> (PE, electronic auction, 90 days) and 2,721 chunks. Every number below comes from
+> `rag-zero evals run` and is stored in `evals/results/latest.json`.
+> The documentation is mostly in Portuguese; this page is the English summary.
 
-## Por que
+## Why
 
-O Brasil publica toda compra pública no [PNCP](https://pncp.gov.br) — centenas de
-milhares de avisos por ano. A busca do portal funciona por palavra exata; perguntas
-reais ("quais oportunidades de merenda escolar em PE?") não.
+Brazil publishes every public purchase on [PNCP](https://pncp.gov.br) — hundreds of
+thousands of notices a year. The portal's search matches exact words; real questions
+("which school-meal opportunities are open in PE?") do not.
 
-O RAG Zero responde essas perguntas **com citações verificáveis** — ou **recusa**
-quando o corpus não contém a resposta. E trata avaliação como componente de primeira
-classe: retrieval e resposta são medidos separadamente, e a decisão de qual modo usar
-é tomada por número, não por moda.
+RAG Zero answers those questions **with verifiable citations** — or **refuses** when the
+corpus does not contain the answer. Evaluation is a first-class component: retrieval and
+answers are measured separately, and which mode to use is decided by numbers, not trends.
 
-## Resultados medidos
+## Measured results
 
-Golden set com 72 itens: 24 estruturais (lookup por ID), 30 verbatim (a pergunta
-repete o texto do aviso), 12 paráfrases curadas (sinônimos, sem repetir o texto) e 6
-sem resposta. `k=10`, CPU, modelo de embedding local.
+Golden set with 72 items: 24 structural (lookup by ID), 30 verbatim (the question repeats
+the notice text), 12 curated paraphrases (synonyms, no repeated text) and 6 unanswerable.
+`k=10`, CPU, local embedding model.
 
-| modo | recall@10 | MRR@10 | citation precision | estrutural | recusa | p95 |
+| mode | recall@10 | MRR@10 | citation precision | structural | refusal | p95 |
 |---|---|---|---|---|---|---|
 | **bm25** | **0.905** | **0.758** | **0.690** | 1.000 | 0.667 | **68 ms** |
 | dense | 0.405 | 0.262 | 0.190 | 1.000 | 0.667 | 901 ms |
 | hybrid (RRF) | 0.762 | 0.487 | 0.381 | 1.000 | 0.667 | 778 ms |
 
-> p95 de uma execução (`evals/results/latest.json`); varia ~2× entre execuções nesta
-> máquina (68–152 ms no BM25). A ordem de grandeza é estável: BM25 é ~10× mais rápido.
-> A CLI em processo frio soma ~0,7 s de import + carga do DF; o cold start de 46 s é só
-> do modelo denso, que o modo padrão não carrega.
+p95 comes from a single run and varies about 2× between runs on the author's machine
+(68–152 ms for BM25); the order of magnitude is stable: BM25 is ~10× faster.
 
-Por subtipo (é aqui que o resultado fica legível):
+What the numbers say:
 
-| subtipo | n | bm25 recall / MRR | dense recall / MRR | hybrid recall / MRR |
-|---|---|---|---|---|
-| verbatim | 30 | **0.867 / 0.712** | 0.267 / 0.134 | 0.700 / 0.370 |
-| paraphrase | 12 | **1.000 / 0.873** | 0.750 / 0.581 | 0.917 / 0.778 |
-| unanswerable | 6 | 0.667 (4/6 recusas corretas) | 0.667 | 0.667 |
+1. **BM25 dominates on this corpus**, so it is the CLI default.
+2. **Dense retrieval does not pay for itself here.** The corpus is full of near-identical
+   objects ("price registration for future acquisition of…") and the embedding model does
+   not separate municipality/agency as sharply as BM25 does. It is a model/corpus limit,
+   not an index bug.
+3. **RRF can hurt.** Fusing a good ranker with a weak one dilutes the good one.
+4. **Refusal went from 3/6 to 4/6** with a temporal-scope rule. The two remaining failures
+   are compositional ("bullet trains", "nuclear submarines"): each term exists in the
+   corpus, the combination does not.
+5. **Dense latency is a real CPU cost** (~0.6 s per query warm, ~46 s cold start).
 
-### O que os números dizem (e o que eu fiz com isso)
+> Honesty about the golden set: the 12 paraphrases name the municipality, which gives BM25
+> a strong lexical anchor. A future set needs questions without proper nouns to isolate
+> real synonymy.
 
-1. **BM25 domina neste corpus.** Ganha em recall, MRR, precisão de citação e latência,
-   nos dois subtipos. Por isso o modo padrão da CLI passou a ser `bm25` — manter
-   `hybrid` como default seria preferir a estética da arquitetura ao resultado medido.
-2. **O modo denso não se paga.** O corpus é cheio de objetos quase idênticos
-   ("registro de preços para futura aquisição de…"), e o embedding não separa
-   município/órgão com a nitidez que o BM25 separa. `cos(stored, fresh) = 1.0`
-   confirmou que não é bug de índice: é limite de modelo/corpus.
-3. **RRF pode piorar.** Fundir um ranker bom com um fraco dilui o bom. Hybrid ficou
-   abaixo do BM25 em todos os estratos — um lembrete de que fusão pressupõe rankers
-   complementares, não apenas diferentes.
-4. **Recusa subiu de 3/6 para 4/6** com uma regra de escopo temporal: o corpus cobre
-   anos de compra de 2022 a 2027, então perguntar por 2031 (ou por 2019) é recusado
-   antes mesmo do retrieval. As duas falhas restantes são **composicionais**
-   ("trens-bala", "submarinos nucleares"): cada termo existe no corpus, a combinação
-   não. Cobertura IDF não captura isso.
-5. **Latência densa é custo real em CPU**: ~0,6 s por consulta em regime quente e ~46 s
-   de cold start para carregar o ONNX. BM25 responde em ~45–55 ms (p50).
+## Install
 
-> Honestidade sobre o golden set: as 12 paráfrases nomeiam o município, o que dá ao
-> BM25 uma âncora lexical forte. Um conjunto futuro precisa de perguntas sem nome
-> próprio ("quem comprou leite especial?") para isolar sinonímia de verdade.
-
-## Arquitetura
-
-```
-API PNCP (pública, sem chave)
-   │  ingest paginado, com throttle e retry
-   ▼
-SQLite ── contratacoes (metadados estruturados)
-   │
-   ├── ficha do aviso ──▶ chunks (~180 palavras, overlap 25)
-   │                          ├── FTS5 (BM25, stemming PT)
-   │                          └── embeddings 384d (BLOB float32)
-   ▼
-retrieval (BM25 | denso | RRF) ──▶ resposta extrativa
-                                    ├── citações (ID PNCP + link)
-                                    └── recusa por cobertura IDF / escopo temporal
-
-evals/ golden set ──▶ métricas ──▶ CI
+```bash
+git clone https://github.com/BlackYuriJDU/rag-zero && cd rag-zero
+uv sync                  # default install: BM25 only, lightweight
+uv sync --extra dense    # adds fastembed for dense / hybrid retrieval
 ```
 
-Sem Docker, sem Postgres, sem serviço externo: `uv sync` e pronto. A decisão está em
-[`docs/adr/0001-sqlite-first.md`](docs/adr/0001-sqlite-first.md), com gatilhos objetivos
-de migração (>100 mil chunks, escrita concorrente ou p95 denso >200 ms).
+Dense and hybrid modes are optional on purpose. Without the extra, asking for them prints
+how to install it instead of failing with a traceback.
 
 ## Quickstart
 
 ```bash
-uv sync
-
-# 1. Ingerir 90 dias de Pregão Eletrônico em PE (idempotente)
+# 1. Ingest 90 days of electronic auctions in PE (idempotent)
 uv run rag-zero ingest --uf PE --dias 90 --modalidade 6
 
-# 2. Gerar embeddings (local, CPU; ~2 min para 2,7 mil chunks)
+# 2. Generate embeddings — optional, needs the dense extra (local, CPU)
 uv run rag-zero index
 
-# 3. Perguntar
+# 3. Ask (questions in Portuguese)
 uv run rag-zero ask "Quais contratações de merenda escolar em Recife?"
-uv run rag-zero ask "Qual o valor total estimado da contratação 11361854000110-1-000088/2026?"
 
-# 4. Medir
+# 4. Measure
 uv run rag-zero evals build
 uv run rag-zero evals run --modes bm25,dense,hybrid --k 10
 ```
 
-`ask` termina com `confiança=… · N ms · modo=…`, e imprime `RECUSA: motivo` quando não
-há evidência suficiente. `search` mostra o ranking sem gerar resposta.
+`ask` ends with `confidence=… · N ms · mode=…` and prints `RECUSA: reason` when the
+evidence is insufficient. `search` shows the ranking without generating an answer.
 
-## O que está implementado
+## Architecture
 
-- [x] **P0** — cliente PNCP (quirks documentados), ingestão idempotente por fingerprint
-- [x] **P1** — chunking com stemming PT correto, FTS5/BM25, embeddings locais, RRF
-- [x] **P2 (parcial)** — resposta extrativa com citação, recusa por evidência e escopo
-      temporal, golden set estratificado, métricas sem juiz LLM
-- [ ] **P2 (resto)** — PDFs de edital, extração/OCR, citações por span
-- [ ] **P3** — reranker cross-encoder PT-BR
-- [ ] **P4** — API FastAPI + UI de inspeção
-- [ ] **P5** — testes de prompt injection, release v1.0
+```
+PNCP API (public, no key)
+   │  paginated ingest, throttled, with retry
+   ▼
+SQLite ── contratacoes (structured metadata)
+   │
+   ├── notice record ──▶ chunks (~180 words, 25 overlap)
+   │                        ├── FTS5 (BM25, Portuguese stemming)
+   │                        └── 384-d embeddings (float32 BLOB, optional)
+   ▼
+retrieval (BM25 | dense | RRF) ──▶ extractive answer
+                                   ├── citations (PNCP ID + link)
+                                   └── refusal by IDF coverage / temporal scope
 
-## Avaliações
-
-O harness vive em `src/rag_zero/evals/` e o golden set em `evals/golden_set.yaml`.
-
-1. Itens **estruturais** são derivados do banco e conferidos por SQL (valor, prazo, órgão).
-2. Itens **verbatim** usam um trecho real do objeto — medem o piso do índice lexical.
-3. Itens de **paráfrase** são escritos à mão e verificados contra o corpus — medem
-   generalização semântica.
-4. Itens **sem resposta** medem recusa; recusar corretamente é acerto, não falha.
-
-Métricas são definidas matematicamente (`recall@k`, `MRR@k`, precisão de citação,
-acurácia estrutural, acurácia de recusa) — nenhum juiz LLM no caminho. O relatório
-inclui `by_subtipo`, então um número agregado nunca esconde um estrato ruim.
-
-## Desenvolvimento
-
-```bash
-uv sync --dev
-uv run ruff check .
-uv run ruff format --check .
-uv run pytest        # 33 testes, sem rede e sem modelo
+evals/ golden set ──▶ metrics ──▶ CI
 ```
 
-CI roda lint, format e testes em todo push (`.github/workflows/ci.yml`).
+No Docker, no Postgres, no external service. The decision is recorded in
+[`docs/adr/0001-sqlite-first.md`](docs/adr/0001-sqlite-first.md), with objective migration
+triggers (>100k chunks, concurrent writes, or dense p95 >200 ms).
 
-## Limitações (seção honesta)
+## Roadmap
 
-- **Sem PDFs de edital.** O documento indexado é a ficha do aviso (objeto, órgão,
-  valores, datas). Anexos e OCR são P2.
-- **Recusa composicional não resolvida.** Termos que existem isoladamente mas nunca
-  juntos ("submarinos nucleares") passam pela cobertura IDF. Um verificador de
-  co-ocorrência no top-k é o próximo experimento — não uma regra inventada.
-- **Golden set pequeno.** 72 itens dão direção, não significância estatística. Cada
-  número tem intervalo de confiança largo; trate como bússola, não como veredito.
-- **Denso em CPU.** ~0,6 s/consulta e 46 s de cold start. Em produção, cache do modelo
-  ou GPU — ou simplesmente BM25, que hoje ganha.
-- **Escopo do corpus.** PE, Pregão Eletrônico, 90 dias de publicação. O sistema **não**
-  filtra por UF nem modalidade: uma pergunta sobre outro estado pode recuperar
-  contratos de PE se compartilhar vocabulário. Detectar e recusar escopo geográfico é
-  trabalho pendente — hoje a limitação é declarada, não aplicada.
-- Projeto independente; não afiliado ao governo brasileiro.
+- [x] **P0** — PNCP client (quirks documented), idempotent ingestion by fingerprint
+- [x] **P1** — chunking with correct Portuguese stemming, FTS5/BM25, local embeddings, RRF
+- [x] **P2 (partial)** — extractive answers with citations, refusal by evidence and temporal
+      scope, stratified golden set, metrics with no LLM judge
+- [ ] **P2 (rest)** — tender PDFs, extraction/OCR, span-level citations
+- [ ] **P3** — Portuguese cross-encoder reranker
+- [ ] **P4** — FastAPI + inspection UI
+- [ ] **P5** — prompt-injection tests, v1.0 release
 
-## Licença
+## Limitations
 
-MIT — veja [LICENSE](LICENSE).
+- **No tender PDFs.** The indexed document is the notice record (object, agency, values,
+  dates). Attachments and OCR are P2.
+- **Compositional refusal is unsolved.** Terms that exist alone but never together pass
+  the IDF coverage check. A co-occurrence verifier on the top-k is the next experiment.
+- **Small golden set.** 72 items give direction, not statistical significance.
+- **Dense on CPU** is slow; BM25 currently wins anyway.
+- **Corpus scope.** PE, electronic auction, 90 days. The system does **not** filter by
+  state or modality: a question about another state may retrieve PE contracts that share
+  vocabulary. Geographic-scope refusal is pending work — today the limit is declared, not
+  enforced.
+- Independent project; not affiliated with the Brazilian government.
 
-Autor: Arthur Araújo ([@BlackYuriJDU](https://github.com/BlackYuriJDU)).
+## Contributing
+
+Contributions are welcome — in English or Portuguese. Start with
+[CONTRIBUTING.md](CONTRIBUTING.md); issues labelled `good first issue` are a good entry
+point. Please read the [Limitations](#limitations) first: several of them are open problems
+with a clear definition of done.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+Author: Arthur Araújo ([@BlackYuriJDU](https://github.com/BlackYuriJDU)).

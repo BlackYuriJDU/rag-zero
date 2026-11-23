@@ -11,6 +11,7 @@ um produto escalar, e a matriz inteira cabe em memória (5k × 384 × 4 B ≈ 7,
 
 from __future__ import annotations
 
+import importlib.util
 from collections.abc import Sequence
 from typing import Protocol
 
@@ -18,6 +19,10 @@ import numpy as np
 
 from rag_zero import db
 from rag_zero.config import settings
+
+
+class DenseUnavailableError(RuntimeError):
+    """O extra opcional ``dense`` (fastembed) não está instalado."""
 
 
 class Embedder(Protocol):
@@ -53,6 +58,10 @@ class FastEmbedder:
         dim: int | None = None,
         threads: int | None = None,
     ) -> None:
+        if importlib.util.find_spec("fastembed") is None:
+            raise DenseUnavailableError(
+                "Os modos 'dense' e 'hybrid' exigem o extra opcional: pip install 'rag-zero[dense]'"
+            )
         self.model_name = model_name or settings.embedding_model
         self.dim = dim or settings.embedding_dim
         self.threads = threads
